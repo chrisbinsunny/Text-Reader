@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_ml_vision/firebase_ml_vision.dart';
 import 'dart:io';
+import 'package:share/share.dart';
+
 
 class ShowText extends StatefulWidget {
   final File pickedImage;
@@ -91,6 +93,17 @@ class _ShowTextState extends State<ShowText> {
             ),
           ),
         ),
+            IconButton(
+              icon: Icon(
+                Icons.share,
+                color: Color(0xFF2d3447),
+                size: 27,
+              ),
+              onPressed: () {
+                Share.share(
+                    '${_controller.text}' );
+              },
+            ),
 //        Container(
 //          height: MediaQuery.of(context).size.height,
 //          width: MediaQuery.of(context).size.width,

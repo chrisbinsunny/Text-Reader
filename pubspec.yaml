@@ -25,6 +25,9 @@ dependencies:
     sdk: flutter
   firebase_ml_vision: ^0.9.4
   image_picker: ^0.6.7+2
+  share: ^0.6.3+5
+  camera: ^0.5.8+2
+  path_provider: ^1.6.11
 
 
 

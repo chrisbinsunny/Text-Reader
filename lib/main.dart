@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_ml_vision/firebase_ml_vision.dart';
-import 'package:textreader/ImageScreen.dart';
+import 'package:textreader/CamSetup.dart';
+import 'package:textreader/ImageScreenGallery.dart';
 
 void main() => runApp(MyApp());
 
@@ -94,8 +95,27 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: (){
                   Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ImageScreen()),
+                  MaterialPageRoute(builder: (context) => ImageScreenGallery()),
                 );
+                },
+              ),
+              RaisedButton(
+                child: Text(
+                  'Capture an Image',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                  ),
+                ),
+                color: Colors.deepOrange,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30)),
+                padding: EdgeInsets.all(15),
+                onPressed: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => CameraWidget()),
+                  );
                 },
               ),
             ],
