@@ -71,14 +71,14 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                "Click on the below button\nto pick an Image",
+                "Select an Option",
                 style: TextStyle(
                   fontSize: 23,
                 ),
                 textAlign: TextAlign.center,
               ),
               SizedBox(
-                height: 20,
+                height: 25,
               ),
               RaisedButton(
                 child: Text(
@@ -99,6 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
                 },
               ),
+              SizedBox(height: 10,),
               RaisedButton(
                 child: Text(
                   'Capture an Image',

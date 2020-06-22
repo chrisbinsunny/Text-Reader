@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_ml_vision/firebase_ml_vision.dart';
 import 'dart:io';
 import 'package:share/share.dart';
+import 'package:textreader/sendText.dart';
 
 
 class ShowText extends StatefulWidget {
@@ -104,19 +105,26 @@ class _ShowTextState extends State<ShowText> {
                     '${_controller.text}' );
               },
             ),
-//        Container(
-//          height: MediaQuery.of(context).size.height,
-//          width: MediaQuery.of(context).size.width,
-//          child: textRead
-//              ? Center(
-//                  child: Text(
-//                  text,
-//                ))
-//              : Center(
-//                  child: CircularProgressIndicator(
-//                  valueColor: AlwaysStoppedAnimation<Color>(Colors.deepOrange),
-//                )),
-//        ),
+            RaisedButton(
+              child: Text(
+                'Capture an Image',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
+              ),
+              color: Colors.deepOrange,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30)),
+              padding: EdgeInsets.all(15),
+              onPressed: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SendText(_controller)),
+                );
+              },
+            ),
+
       ]),
     );
   }

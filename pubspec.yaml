@@ -28,6 +28,7 @@ dependencies:
   share: ^0.6.3+5
   camera: ^0.5.8+2
   path_provider: ^1.6.11
+  http: ^0.12.1
 
 
 
