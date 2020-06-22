@@ -59,73 +59,78 @@ class _ShowTextState extends State<ShowText> {
         ),
         backgroundColor: Colors.deepOrange,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-        Center(
-          child: Container(
-            width: MediaQuery.of(context).size.width*0.9,
-            child: TextFormField(
-              maxLines: 5,
-              controller: _controller,
-              style: TextStyle(
-                color: Colors.black
-              ),
-              decoration: new InputDecoration(
-                labelText: "Detected Text",
-                labelStyle: TextStyle(
-                  color: Colors.black
-                ),
-                fillColor: Colors.white,
-                enabledBorder: new OutlineInputBorder(
-                  borderRadius: new BorderRadius.circular(25.0),
-                  borderSide: new BorderSide(
-                      color: Colors.blue, width: 4.0
+      body: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+            Center(
+              child: Container(
+                width: MediaQuery.of(context).size.width*0.9,
+                child: TextFormField(
+                  maxLines: 20,
+                  minLines: 2,
+                  controller: _controller,
+                  style: TextStyle(
+                    color: Colors.black
                   ),
-                ),
-                border: new OutlineInputBorder(
-                  borderRadius: new BorderRadius.circular(25.0),
-                  borderSide: new BorderSide(
-                      color: Colors.blue, width: 4.0
+                  decoration: new InputDecoration(
+                    labelText: "Detected Text",
+                    labelStyle: TextStyle(
+                      color: Colors.black
+                    ),
+                    fillColor: Colors.white,
+                    enabledBorder: new OutlineInputBorder(
+                      borderRadius: new BorderRadius.circular(25.0),
+                      borderSide: new BorderSide(
+                          color: Colors.blue, width: 4.0
+                      ),
+                    ),
+                    border: new OutlineInputBorder(
+                      borderRadius: new BorderRadius.circular(25.0),
+                      borderSide: new BorderSide(
+                          color: Colors.blue, width: 4.0
+                      ),
+                    )
                   ),
-                )
-              ),
-              keyboardType: TextInputType.text,
-            ),
-          ),
-        ),
-            IconButton(
-              icon: Icon(
-                Icons.share,
-                color: Color(0xFF2d3447),
-                size: 27,
-              ),
-              onPressed: () {
-                Share.share(
-                    '${_controller.text}' );
-              },
-            ),
-            RaisedButton(
-              child: Text(
-                'Capture an Image',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
+                  keyboardType: TextInputType.text,
                 ),
               ),
-              color: Colors.deepOrange,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30)),
-              padding: EdgeInsets.all(15),
-              onPressed: (){
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SendText(_controller)),
-                );
-              },
             ),
+                IconButton(
+                  icon: Icon(
+                    Icons.share,
+                    color: Color(0xFF2d3447),
+                    size: 27,
+                  ),
+                  onPressed: () {
+                    Share.share(
+                        '${_controller.text}' );
+                  },
+                ),
+                RaisedButton(
+                  child: Text(
+                    'Send Text',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                    ),
+                  ),
+                  color: Colors.deepOrange,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30)),
+                  padding: EdgeInsets.all(15),
+                  onPressed: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SendText(_controller)),
+                    );
+                  },
+                ),
 
-      ]),
+          ]),
+        ),
+      ),
     );
   }
 }
